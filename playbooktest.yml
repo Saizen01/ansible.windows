@@ -1,0 +1,10 @@
+---
+- hosts: all
+  collections:
+    - ansible.windows
+
+  tasks:
+    - name: Remove obsolete shortcut
+      ansible.windows.win_file:
+        path: C:\Users\a766209\OneDrive - Atos\Desktop\obsoleteShortcut.exe
+        state: absent
