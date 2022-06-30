@@ -8,4 +8,3 @@
       ansible.windows.win_file:
         path: C:\Users\usr-nagios\Desktop\obsoleteShortcut.exe
         state: absent
-        
