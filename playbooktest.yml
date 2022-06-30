@@ -5,6 +5,6 @@
 
   tasks:
     - name: Remove obsolete shortcut
-      ansible.windows.win_file:
+      win_file:
         path: C:\Users\usr-nagios\Desktop\obsoleteShortcut.exe
         state: absent
