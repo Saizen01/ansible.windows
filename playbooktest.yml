@@ -11,5 +11,5 @@
       win_file:
         username: "{{ item }}"
         path: C:\Users\$username\Desktop\obsoleteShortcut.exe
-        state: present
+        state: absent
       loop: "{{ enabled_users.stdout_lines[1:-2] }}"
