@@ -12,5 +12,5 @@
         username: "{{ enabled_users }}"
         path: C:\Users\$username\Desktop\obsoleteShortcut.exe
         state: absent
-        remove_multiple: yes
+        remove_multiple: true
       loop: "{{ enabled_users.stdout_lines[1:-2] }}"
