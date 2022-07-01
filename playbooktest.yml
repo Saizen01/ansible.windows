@@ -9,8 +9,7 @@
       register: enabled_users
     - name: Remove obsolete shortcut
       win_file:
-        username: "{{ item }}"
+        username: "{{ enabled_users }}"
         path: C:\Users\$username\Desktop\obsoleteShortcut.exe
         state: absent
         loop: "{{ enabled_users.stdout_lines[1:-2] }}"
-        when: item in enabled_users.stdout_lines[1:-2]
