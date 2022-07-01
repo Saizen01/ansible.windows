@@ -7,9 +7,11 @@
     - name: Get list of all users
       win_shell: Get-LocalUser | Where-Object {$_.Enabled -eq $True} | Select Name | Format-Table -HideTableHeaders
       register: enabled_users
+      echo: "{{ enabled_users.stdout }}"
     - name: Remove obsolete shortcut
       win_file:
         username: "{{ enabled_users }}"
         path: C:\Users\$username\Desktop\obsoleteShortcut.exe
+        echo: "{{ path }}"
         state: absent
         loop: "{{ enabled_users.stdout_lines[1:-2] }}"
