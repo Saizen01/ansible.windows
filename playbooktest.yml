@@ -4,7 +4,13 @@
     - ansible.windows
 
   tasks:
+    - name: Get list of all users
+      win_shell: 
+        Get-LocalUser | Where-Object {$_.Enabled -eq $True} | Select Name | Format-Table -HideTableHeaders
+        register: enabled_users
     - name: Remove obsolete shortcut
       win_file:
-        path: \%CSIDL_COMMON_DESKTOPDIRECTORY%\obsoleteShortcut.exe
+        username: "{{ item }}"
+        path: C:\Users\username\Desktop\obsoleteShortcut.exe
         state: absent
+        loop: "{{ enabled_users.stdout_lines[1:-2] }}"
