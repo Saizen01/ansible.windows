@@ -15,5 +15,3 @@
       loop: "{{ enabled_users.stdout_lines[1:-2] }}"
     - debug:
       var: command_output.stdout_lines
-
-
