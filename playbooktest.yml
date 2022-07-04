@@ -2,7 +2,7 @@
 # Playbook Suppression des raccourcis obsolètes des profils utilisateurs
 - hosts: all
   collections:
-    #Nom des collections à utiliser
+    # Nom des collections à utiliser
     - ansible.windows
 
   tasks:
@@ -11,7 +11,7 @@
       win_shell: Get-LocalUser | Where-Object {$_.Enabled -eq $True} | Select Name | Format-Table -HideTableHeaders
       register: enabled_users
 
-    # Suppression des raccourcis obsolètes des profils utilisateurs présents dans la liste 
+    # Suppression des raccourcis obsolètes des profils utilisateurs présents dans la liste
     - name: Remove obsolete shortcut
       win_file:
         # Nom du raccourci à supprimer
