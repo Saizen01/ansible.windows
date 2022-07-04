@@ -15,9 +15,7 @@
     - name: Remove obsolete shortcut
       win_file:
         # Nom du raccourci à supprimer
-        file: 'obsoleteShortcut.exe'
-        # Nom du chemin d'accès du raccourci à supprimer
-        path: 'C:\Users\{{ item }}\Desktop\'
+        path: 'C:\Users\{{ item }}\Desktop\obsoleteShortcut.exe'
         # État du raccourci à supprimer (absent ou present)
         state: absent
       loop: "{{ enabled_users.stdout_lines[1:-2] | regex_replace(' ', '') }}"
