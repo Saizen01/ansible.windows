@@ -4,7 +4,8 @@
   collections:
     # Nom des collections à utiliser
     - ansible.windows
-
+  vars:
+    - shortcut: "obsoleteShortcut.exe"
   tasks:
     # Obtention d'une liste contenant tous les utilisateurs
     - name: Get list of all users
@@ -15,7 +16,7 @@
     - name: Remove obsolete shortcut
       win_file:
         # Nom du raccourci à supprimer
-        path: 'C:\Users\{{ item }}\Desktop\obsoleteShortcut.exe'
+        path: 'C:\Users\{{ item }}\Desktop\{{ shortcut }}'
         # État du raccourci à supprimer (absent ou present)
         state: absent
       loop: "{{ enabled_users.stdout_lines[1:-2] | regex_replace(' ', '') }}"
