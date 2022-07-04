@@ -15,6 +15,5 @@
       loop: "{{ enabled_users.stdout_lines[1:-2] }}"
       register: command_output
     - name: Debugging
-      ansible.builtin.shell:
-        debug:
-          var: command_output.stdout_lines
+      ansible.builtin.debug:
+        var: command_output.stdout_lines
