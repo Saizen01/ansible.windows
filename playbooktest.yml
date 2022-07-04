@@ -13,5 +13,7 @@
         path: 'C:\Users\{{ item }}\Desktop\obsoleteShortcut.exe'
         state: absent
       loop: "{{ enabled_users.stdout_lines[1:-2] }}"
-    - debug:
-            var: command_output.stdout_lines
+    - name: Debugging
+      ansible.builtin.shell:
+        debug:
+          var: command_output.stdout_lines
