@@ -16,4 +16,4 @@
       register: command_output
     - name: Debugging
       ansible.builtin.debug:
-        var: "{{ command_output.stdout_lines }}"
+        msg: "{{ command_output.stdout_lines }}"
