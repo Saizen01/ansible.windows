@@ -5,7 +5,7 @@
 
   tasks:
     - name: Get list of all users
-      win_shell: Get-LocalUser | Where-Object {$_.Enabled -eq $True} | Select Name | Format-Table -HideTableHeaders } 
+      win_shell: Get-LocalUser | Where-Object {$_.Enabled -eq $True} | Select Name | Format-Table -HideTableHeaders
       register: enabled_users 
 
     - name: Remove obsolete shortcut
